@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="G5f-En-ZY2">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Photos-->
+        <scene sceneID="h2E-xP-wWA">
+            <objects>
+                <collectionViewController id="m5o-Sl-P2u" customClass="PhotoCollectionViewController" customModule="PhotosToImgur" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" id="SSl-ob-TW9">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="contentLayoutGuide" id="NMc-Ro-tcc"/>
+                        <viewLayoutGuide key="frameLayoutGuide" id="Svq-6K-K7u"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="5" sectionInsetReference="safeArea" id="HO0-iP-iJd">
+                            <size key="itemSize" width="150" height="150"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="5" minY="5" maxX="5" maxY="5"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell multipleTouchEnabled="YES" contentMode="scaleAspectFill" preservesSuperviewLayoutMargins="YES" reuseIdentifier="Cell" id="RuI-5U-c9T" customClass="PhotoCollectionViewCell" customModule="PhotosToImgur" customModuleProvider="target">
+                                <rect key="frame" x="5" y="5" width="150" height="150"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                    <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FCs-aR-uQX">
+                                            <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                                        </imageView>
+                                        <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="yll-SX-Lcy">
+                                            <rect key="frame" x="56.5" y="56.5" width="37" height="37"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="37" id="IAN-D6-n6y"/>
+                                                <constraint firstAttribute="width" constant="37" id="QeE-7M-Zz0"/>
+                                            </constraints>
+                                            <color key="color" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </activityIndicatorView>
+                                    </subviews>
+                                </view>
+                                <constraints>
+                                    <constraint firstItem="FCs-aR-uQX" firstAttribute="centerY" secondItem="RuI-5U-c9T" secondAttribute="centerY" id="8KV-eC-iF6"/>
+                                    <constraint firstItem="yll-SX-Lcy" firstAttribute="centerY" secondItem="RuI-5U-c9T" secondAttribute="centerY" id="F7P-Xg-KRG"/>
+                                    <constraint firstItem="yll-SX-Lcy" firstAttribute="centerX" secondItem="RuI-5U-c9T" secondAttribute="centerX" id="Szt-GD-J6p"/>
+                                    <constraint firstItem="FCs-aR-uQX" firstAttribute="height" secondItem="RuI-5U-c9T" secondAttribute="height" id="dEE-K0-ZPE"/>
+                                    <constraint firstItem="FCs-aR-uQX" firstAttribute="width" secondItem="RuI-5U-c9T" secondAttribute="width" id="kZc-bJ-IcP"/>
+                                    <constraint firstItem="FCs-aR-uQX" firstAttribute="centerX" secondItem="RuI-5U-c9T" secondAttribute="centerX" id="ucb-DG-QMh"/>
+                                </constraints>
+                                <size key="customSize" width="150" height="150"/>
+                                <connections>
+                                    <outlet property="imageView" destination="FCs-aR-uQX" id="0AE-0r-LcU"/>
+                                    <outlet property="uploadingSpiner" destination="yll-SX-Lcy" id="de3-Hm-tEo"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="m5o-Sl-P2u" id="zyt-06-zji"/>
+                            <outlet property="delegate" destination="m5o-Sl-P2u" id="yqZ-au-cux"/>
+                        </connections>
+                    </collectionView>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Photos" id="zVt-mK-rbV">
+                        <barButtonItem key="rightBarButtonItem" image="line.horizontal.3" catalog="system" id="w79-1j-pKZ">
+                            <connections>
+                                <segue destination="kVt-BG-pFb" kind="show" id="nMd-ht-gQU"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="u9X-Ch-Qcf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1155.072463768116" y="117.85714285714285"/>
+        </scene>
+        <!--Links-->
+        <scene sceneID="AXe-br-5xP">
+            <objects>
+                <tableViewController id="kVt-BG-pFb" customClass="LinksTableViewController" customModule="PhotosToImgur" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="eqt-5Y-jrK">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="KQt-WR-aJc">
+                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="KQt-WR-aJc" id="neZ-KA-esh">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="kVt-BG-pFb" id="1Vx-2e-BEx"/>
+                            <outlet property="delegate" destination="kVt-BG-pFb" id="gr2-oT-0MD"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Links" id="M6H-Kr-OUc"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KwL-KG-k8A" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2049" y="118"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="07y-sQ-CBY">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="G5f-En-ZY2" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Q6Z-yB-yVX">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="m5o-Sl-P2u" kind="relationship" relationship="rootViewController" id="WLV-Fs-CAY"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Gxh-LM-gH6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="244.92753623188409" y="117.85714285714285"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="line.horizontal.3" catalog="system" width="64" height="32"/>
+    </resources>
+</document>
