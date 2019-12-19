@@ -101,10 +101,10 @@ extension PhotoCollectionViewController {
                
             DispatchQueue.global().async {
                 PhotoNetwotkService.postPhoto(image: fullSizeImage , completion:{ [weak self] url in
-                DispatchQueue.main.async {
+                    DispatchQueue.main.async {
                     if let url = url {
                         cell.toggleActivityIndicator(on: false)
-                        self!.saveUrl(url: url)
+                        self?.saveUrl(url: url)
                     } else {
                         SharedClass.sharedInstance.alertWindow(title: "Error", message: "Image has not uploaded", view: self!)
                         cell.toggleActivityIndicator(on: false)
@@ -137,7 +137,6 @@ extension PhotoCollectionViewController: UICollectionViewDelegateFlowLayout {
         let widthCell = collectionView.frame.width / CGFloat(countItem)
         let hightCell = widthCell - (offset*2)
         let spacing = CGFloat((countItem + 1)) * offset / CGFloat(countItem)
-        collectionView.collectionViewLayout.invalidateLayout()
         return CGSize(width: widthCell - spacing, height: hightCell )
     }
     
