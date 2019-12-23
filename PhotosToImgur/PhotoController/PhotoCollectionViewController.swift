@@ -101,12 +101,13 @@ extension PhotoCollectionViewController {
                
             DispatchQueue.global().async {
                 PhotoNetwotkService.postPhoto(image: fullSizeImage , completion:{ [weak self] url in
+                    guard let self = self else {return}
                     DispatchQueue.main.async {
                     if let url = url {
                         cell.toggleActivityIndicator(on: false)
-                        self?.saveUrl(url: url)
+                        self.saveUrl(url: url)
                     } else {
-                        SharedClass.sharedInstance.alertWindow(title: "Error", message: "Image has not uploaded", view: self!)
+                        SharedClass.sharedInstance.alertWindow(title: "Error", message: "Image has not uploaded", view: self)
                         cell.toggleActivityIndicator(on: false)
                     }
                 }
